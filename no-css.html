@@ -12,14 +12,18 @@
       <li>아이템-3</li>
     </ul>
     <script>
-      for (
-        let i = 0;
-        i < window.document.body.children[0].children.length;
-        i++
-      ) {
-        window.document.body.children[0].children[i].style.color = "red";
-      }
-      const myTarget = window.document.body.children[0].children[0].style.color;
+      const myList = document.querySelector("#my-list");
+      console.dir(myList);
+      // for (
+      //   let i = 0;
+      //   i < window.document.body.children[0].children.length;
+      //   i++
+      // ) {
+      //   window.document.body.children[0].children[i].style.color = "red";
+      // }
+      const myTarget =
+        (window.document.body.children[0].children[0].style.backgroundColor =
+          "red");
       console.dir(myTarget);
     </script>
   </body>
