@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Styling Practice</title>
+  </head>
+  <body>
+    <ul id="my-list">
+      <li>아이템-1</li>
+      <li>아이템-2</li>
+      <li>아이템-3</li>
+      <li>아이템-4</li>
+      <li>아이템-5</li>
+    </ul>
+
+    <button onclick="exampleOne()">Example 1</button>
+    <button onclick="exampleTwo()">Example 2</button>
+    <button onclick="exampleThree()">Example 3</button>
+    <button onclick="exampleFour()">Example 4</button>
+    <button onclick="exampleFive()">Example 5</button>
+    <button onclick="exampleSix()">Example 6</button>
+    <button onclick="exampleSeven()">Example 7</button>
+    <button onclick="exampleEight()">Example 8</button>
+    <button onclick="exampleNine()">Example 9</button>
+    <button onclick="exampleTen()">Example 10</button>
+    <button onclick="exampleEleven()">Example 11</button>
+    <button onclick="exampleTwelve()">Example 12</button>
+    <button onclick="exampleThirteen()">Example 13</button>
+    <button onclick="exampleFourteen()">Example 14</button>
+    <button onclick="exampleFifteen()">Example 15</button>
+    <button onclick="exampleSixteen()">Example 16</button>
+    <button onclick="exampleSeventeen()">Example 17</button>
+    <button onclick="exampleEighteen()">Example 18</button>
+    <button onclick="exampleNineteen()">Example 19</button>
+    <button onclick="exampleTwenty()">Example 20</button>
+    <button onclick="resetStyles()">Reset</button>
+
+    <script>
+      function exampleOne() {
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          myList.children[i].style.backgroundColor = "red";
+        }
+      }
+      function exampleTwo() {
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          // 나누어서 2로 맞아떨어지지 않는다면. 홀짝을 구분하는 로직
+          if (i % 2 === 0) {
+            myList.children[i].style.backgroundColor = "blue";
+          } else {
+            myList.children[i].style.backgroundColor = "green";
+          }
+        }
+      }
+
+      function exampleThree() {
+        const colors = ["orange", "purple", "yellow", "pink", "cyan"];
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          myList.children[i].style.backgroundColor = colors[i];
+        }
+      }
+
+      function exampleFour() {
+        const styleObj = {
+          color: "white",
+          backgroundColor: "black",
+          padding: "10px",
+        };
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          myList.children[i].style.color = styleObj.color;
+          myList.children[i].style.backgroundColor = styleObj.backgroundColor;
+          myList.children[i].style.padding = styleObj.padding;
+        }
+      }
+
+      function exampleFive() {
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          for (let j = 0; j <= i; j++) {
+            myList.children[i].style.marginLeft = j * 5 + "px";
+          }
+        }
+      }
+
+      function exampleSix() {
+        const myList = document.body.children[0];
+        let i = 0;
+        // 한번도 안써본 조건기반 반복문
+        while (i < myList.children.length) {
+          myList.children[i].style.fontSize = 16 + i * 4 + "px";
+          i++;
+        }
+      }
+
+      function exampleSeven() {
+        const myList = document.body.children[0];
+        let counter = 1;
+        for (let i = 0; i < myList.children.length; i++) {
+          myList.children[i].style.width = 100 * counter + "px";
+          counter++;
+        }
+      }
+
+      function exampleEight() {
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          myList.children[i].style.height = 30 + i * 10 + "px";
+          myList.children[i].style.lineHeight = 30 + i * 10 + "px";
+        }
+      }
+
+      function exampleNine() {
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          myList.children[i].style.fontWeight = "bold";
+          myList.children[i].style.textAlign = "center";
+          myList.children[i].style.textDecoration = "underline";
+        }
+      }
+
+      function exampleTen() {
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          myList.children[i].style.border = "3px solid red";
+          myList.children[i].style.borderRadius = "10px";
+          myList.children[i].style.margin = "5px";
+        }
+      }
+
+      function exampleEleven() {
+        const myList = document.body.children[0];
+        const properties = ["color", "backgroundColor", "fontSize"];
+        const values = ["red", "yellow", "20px"];
+        for (let i = 0; i < myList.children.length; i++) {
+          for (let j = 0; j < properties.length; j++) {
+            myList.children[i].style[properties[j]] = values[j];
+          }
+        }
+      }
+
+      function exampleTwelve() {
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          if (i < 2) {
+            myList.children[i].style.backgroundColor = "lightblue";
+          } else if (i < 4) {
+            myList.children[i].style.backgroundColor = "lightgreen";
+          } else {
+            myList.children[i].style.backgroundColor = "lightcoral";
+          }
+        }
+      }
+
+      function exampleThirteen() {
+        const colors = ["red", "orange", "yellow", "green", "blue"];
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          let colorIndex = i % colors.length;
+          myList.children[i].style.backgroundColor = colors[colorIndex];
+        }
+      }
+
+      function exampleFourteen() {
+        const styleConfig = {
+          first: { color: "white", backgroundColor: "black" },
+          middle: { color: "black", backgroundColor: "gray" },
+          last: { color: "red", backgroundColor: "white" },
+        };
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          let currentStyle; // 초기화 하기 전 선언만 한 패턴
+          if (i === 0) {
+            currentStyle = styleConfig.first;
+          } else if (i === myList.children.length - 1) {
+            currentStyle = styleConfig.last;
+          } else {
+            currentStyle = styleConfig.middle;
+          }
+          myList.children[i].style.color = currentStyle.color;
+          myList.children[i].style.backgroundColor =
+            currentStyle.backgroundColor;
+        }
+      }
+
+      function exampleFifteen() {
+        const myList = document.body.children[0];
+        let opacityValue = 1;
+        for (let i = 0; i < myList.children.length; i++) {
+          myList.children[i].style.opacity = opacityValue;
+          myList.children[i].style.backgroundColor = "purple";
+          opacityValue = opacityValue - 0.2;
+        }
+      }
+
+      function exampleSixteen() {
+        const myList = document.body.children[0];
+        for (let i = myList.children.length - 1; i >= 0; i--) {
+          myList.children[i].style.backgroundColor = "orange";
+          myList.children[i].style.transform = "translateX(" + i * 20 + "px)";
+        }
+      }
+
+      function exampleSeventeen() {
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          let textContent = myList.children[i].textContent;
+          if (textContent.length > 5) {
+            myList.children[i].style.backgroundColor = "red";
+          } else {
+            myList.children[i].style.backgroundColor = "blue";
+          }
+        }
+      }
+
+      function exampleEighteen() {
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          if (i % 2 === 0 && i > 0) {
+            myList.children[i].style.backgroundColor = "yellow";
+            myList.children[i].style.fontStyle = "italic";
+          } else if (i % 2 !== 0 && i < 3) {
+            myList.children[i].style.backgroundColor = "green";
+            myList.children[i].style.fontWeight = "bold";
+          }
+        }
+      }
+
+      function exampleNineteen() {
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          myList.children[i].style.backgroundColor = "";
+          myList.children[i].style.color = "";
+          myList.children[i].style.fontSize = "";
+          myList.children[i].style.padding = "";
+        }
+        for (let i = 0; i < myList.children.length; i++) {
+          myList.children[i].style.backgroundColor = "lightgray";
+        }
+      }
+
+      function exampleTwenty() {
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          let redValue = 50 + i * 40;
+          let greenValue = 100 + i * 30;
+          let blueValue = 150 + i * 20;
+          myList.children[i].style.backgroundColor =
+            "rgb(" + redValue + "," + greenValue + "," + blueValue + ")";
+          myList.children[i].style.width = 50 + i * 25 + "%";
+        }
+      }
+
+      function resetStyles() {
+        const myList = document.body.children[0];
+        for (let i = 0; i < myList.children.length; i++) {
+          myList.children[i].style.cssText = "";
+        }
+      }
+    </script>
+  </body>
+</html>
