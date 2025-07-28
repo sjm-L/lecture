@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>아이템-1</li>
+      <li>아이템-2</li>
+      <li>아이템-3</li>
+    </ul>
+    <script>
+      for (
+        let i = 0;
+        i < window.document.body.children[0].children.length;
+        i++
+      ) {
+        window.document.body.children[0].children[i].style.color = "red";
+      }
+      const myTarget = window.document.body.children[0].children[0].style.color;
+      console.dir(myTarget);
+    </script>
+  </body>
+</html>
