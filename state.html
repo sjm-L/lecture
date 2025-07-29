@@ -14,9 +14,10 @@
       root.style.width = `${someSize}px`;
       root.style.height = "100px";
 
-      root.addEventListener("click", function () {
+      root.addEventListener("wheel", function () {
         root.style.backgroundColor = "crimson";
         someSize += 10;
+
         root.style.width = `${someSize}px`;
         root.style.height = `${someSize}px`;
 
