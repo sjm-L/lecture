@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>태양계 행성 정보</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .font-family-malgun-gothic {
+        font-family: "Malgun Gothic", sans-serif;
+      }
+      .padding-20 {
+        padding: 20px;
+      }
+      .padding-15 {
+        padding: 15px;
+      }
+      .padding-10-20 {
+        padding: 10px 20px;
+      }
+      .margin-0-auto {
+        margin: 0 auto;
+      }
+      .margin-bottom-30 {
+        margin-bottom: 30px;
+      }
+      .margin-bottom-20 {
+        margin-bottom: 20px;
+      }
+      .margin-bottom-10 {
+        margin-bottom: 10px;
+      }
+      .margin-bottom-5 {
+        margin-bottom: 5px;
+      }
+
+      .max-width-800 {
+        max-width: 800px;
+      }
+      .width-full {
+        width: 100%;
+      }
+      .display-block {
+        display: block;
+      }
+
+      .text-align-center {
+        text-align: center;
+      }
+      .font-size-large {
+        font-size: 1.5em;
+      }
+      .font-size-base {
+        font-size: 16px;
+      }
+      .font-weight-bold {
+        font-weight: bold;
+      }
+
+      .background-color-white {
+        background-color: #ffffff;
+      }
+      .background-color-gray-light {
+        background-color: #f0f0f0;
+      }
+      .background-color-dark {
+        background-color: #1a1a1a;
+      }
+      .background-color-gray-dark {
+        background-color: #2d2d2d;
+      }
+      .background-color-gray-darker {
+        background-color: #333;
+      }
+
+      .text-color-black {
+        color: #000000;
+      }
+      .text-color-white {
+        color: #ffffff;
+      }
+
+      .border-2-solid {
+        border: 2px solid;
+      }
+      .border-color-gray {
+        border-color: #ddd;
+      }
+      .border-color-gray-dark {
+        border-color: #555;
+      }
+
+      .cursor-pointer {
+        cursor: pointer;
+      }
+      .transition-all-ease {
+        transition: all 0.3s ease;
+      }
+
+      .button-base {
+        border: none;
+        font-family: inherit;
+      }
+    </style>
+  </head>
+  <body
+    id="app"
+    class="font-family-malgun-gothic padding-20 transition-all-ease"
+  >
+    <div id="root" class="max-width-800 margin-0-auto">
+      <h1 class="text-align-center margin-bottom-30">태양계 행성들</h1>
+      <button
+        class="display-block margin-0-auto margin-bottom-30 padding-10-20 font-size-base background-color-gray-light text-color-black cursor-pointer button-base"
+      >
+        다크 모드
+      </button>
+
+      <div></div>
+    </div>
+
+    <script>
+      class Planet {
+        constructor(name, distance, description) {
+          this.name = name;
+          this.distance = distance;
+          this.description = description;
+        }
+      }
+      console.log("Planet 클래스 정의 완료");
+
+      class SolarSystem {
+        constructor(name, starName) {
+          this.name = name;
+          this.star = starName;
+          this.planets = [];
+        }
+      }
+      console.log("SolarSystem 클래스 정의 완료");
+
+      const solarSystem = new SolarSystem("태양계", "태양");
+      console.log("태양계 인스턴스 생성 완료:", solarSystem.name);
+
+      const planetData = [
+        ["수성", "5,790만 km", "태양에 가장 가까운 행성"],
+        ["금성", "1억 820만 km", "가장 뜨거운 행성"],
+        ["지구", "1억 4,960만 km", "우리가 살고 있는 행성"],
+        ["화성", "2억 2,790만 km", "붉은 행성"],
+        ["목성", "7억 7,830만 km", "가장 큰 행성"],
+        ["토성", "14억 3,400만 km", "고리가 있는 행성"],
+        ["천왕성", "28억 7,500만 km", "옆으로 누워서 자전하는 행성"],
+        ["해왕성", "45억 400만 km", "가장 먼 행성"],
+      ];
+      console.log("행성 데이터 배열 생성 완료:", planetData.length + "개 행성");
+
+      for (let i = 0; i < planetData.length; i++) {
+        const currentPlanetData = planetData[i];
+        const newPlanet = new Planet(
+          currentPlanetData[0],
+          currentPlanetData[1],
+          currentPlanetData[2]
+        );
+        solarSystem.planets[i] = newPlanet;
+        console.log("행성 생성:", newPlanet.name);
+      }
+      console.log("모든 행성 생성 완료:", solarSystem.planets.length + "개");
+
+      const body = document.getElementById("app");
+      const root = document.getElementById("root");
+      const h1 = root.children[0];
+      const toggleBtn = root.children[1];
+      const planetList = root.children[2];
+      console.log("DOM 요소 접근 완료");
+
+      let isDarkMode = false;
+      console.log("상태 변수 초기화 완료:", isDarkMode);
+
+      function createPlanetElements() {
+        console.log("행성 요소 생성 시작");
+
+        for (let i = planetList.children.length - 1; i >= 0; i--) {
+          planetList.removeChild(planetList.children[i]);
+        }
+        console.log("기존 요소 제거 완료");
+
+        for (let i = 0; i < solarSystem.planets.length; i++) {
+          const planet = solarSystem.planets[i];
+
+          const planetDiv = document.createElement("div");
+          planetDiv.className =
+            "planet margin-bottom-20 padding-15 border-2-solid border-color-gray background-color-white";
+
+          const planetNameDiv = document.createElement("div");
+          planetNameDiv.className =
+            "planet-name font-size-large font-weight-bold margin-bottom-10";
+          planetNameDiv.textContent = planet.name;
+
+          const planetDistanceDiv = document.createElement("div");
+          planetDistanceDiv.className = "planet-info margin-bottom-5";
+          planetDistanceDiv.textContent = "거리: " + planet.distance;
+
+          const planetDescriptionDiv = document.createElement("div");
+          planetDescriptionDiv.className = "planet-info";
+          planetDescriptionDiv.textContent = planet.description;
+
+          planetDiv.appendChild(planetNameDiv);
+          planetDiv.appendChild(planetDistanceDiv);
+          planetDiv.appendChild(planetDescriptionDiv);
+
+          planetList.appendChild(planetDiv);
+          console.log("DOM 요소 생성:", planet.name);
+        }
+        console.log("모든 행성 DOM 요소 생성 완료");
+      }
+
+      createPlanetElements();
+      console.log("초기 행성 목록 렌더링 완료");
+
+      toggleBtn.addEventListener("click", function () {
+        console.log("다크모드 토글 버튼 클릭됨");
+
+        if (isDarkMode === false) {
+          console.log("라이트모드에서 다크모드로 변경 시작");
+
+          body.className =
+            "font-family-malgun-gothic padding-20 transition-all-ease background-color-dark text-color-white";
+          toggleBtn.className =
+            "display-block margin-0-auto margin-bottom-30 padding-10-20 font-size-base background-color-gray-darker text-color-white cursor-pointer button-base";
+          toggleBtn.textContent = "라이트 모드";
+
+          for (let i = 0; i < planetList.children.length; i++) {
+            planetList.children[i].className =
+              "planet margin-bottom-20 padding-15 border-2-solid border-color-gray-dark background-color-gray-dark text-color-white";
+            console.log(
+              "다크모드 스타일 적용:",
+              planetList.children[i].textContent.split("거리:")[0]
+            );
+          }
+
+          isDarkMode = true;
+          console.log("다크모드 전환 완료");
+        } else {
+          console.log("다크모드에서 라이트모드로 변경 시작");
+
+          body.className =
+            "font-family-malgun-gothic padding-20 transition-all-ease background-color-white text-color-black";
+          toggleBtn.className =
+            "display-block margin-0-auto margin-bottom-30 padding-10-20 font-size-base background-color-gray-light text-color-black cursor-pointer button-base";
+          toggleBtn.textContent = "다크 모드";
+
+          for (let i = 0; i < planetList.children.length; i++) {
+            planetList.children[i].className =
+              "planet margin-bottom-20 padding-15 border-2-solid border-color-gray background-color-white text-color-black";
+            console.log(
+              "라이트모드 스타일 적용:",
+              planetList.children[i].textContent.split("거리:")[0]
+            );
+          }
+
+          isDarkMode = false;
+          console.log("라이트모드 전환 완료");
+        }
+      });
+      console.log("이벤트 리스너 등록 완료");
+      console.log("애플리케이션 초기화 완료");
+    </script>
+  </body>
+</html>
