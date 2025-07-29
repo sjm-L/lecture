@@ -14,7 +14,10 @@
       root.style.height = `${someSize}px`; //100px
       root.style.backgroundColor = "cadetblue";
 
-      root.addEventListener();
+      function someEvent() {
+        root.style.backgroundColor = "crimson";
+      }
+      root.addEventListener("click", someEvent);
 
       console.dir(root);
     </script>
