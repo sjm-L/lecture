@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      const root = document.getElementById("root");
+      let someSize = 100;
+      root.style.backgroundColor = "cadetblue";
+      root.style.width = `${someSize}px`;
+      root.style.height = "100px";
+
+      root.addEventListener("wheel", function () {
+        root.style.backgroundColor = "crimson";
+        someSize += 10;
+
+        root.style.width = `${someSize}px`;
+        root.style.height = `${someSize}px`;
+
+        if (someSize > 120) {
+          root.textContent = " 안녕";
+          root.style.color = "white";
+        }
+
+        if (someSize > 130) {
+          root.textContent = " 잘가";
+          root.style.color = "white";
+        }
+      });
+
+      console.dir(root);
+    </script>
+  </body>
+</html>
