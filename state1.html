@@ -10,14 +10,24 @@
 
     <script>
       const root = document.querySelector("#root");
-      console.dir(root);
+      function first() {
+        console.dir(root);
 
-      root.id = "wrapper";
-      root.classList.add("son");
-      root.style.backgroundColor = "cadetblue";
-      root.style.width = "100px";
-      root.style.height = "100px";
-      console.dir(root);
+        root.id = "wrapper";
+        root.classList.add("son");
+        root.style.backgroundColor = "cadetblue";
+        root.style.width = "100px";
+        root.style.height = "100px";
+        console.dir(root);
+      }
+      first();
+
+      root.addEventListener("click", function () {
+        let h1 = document.createElement("h1"); //Element - 태그
+        h1.setAttribute("id", "세로운 타이틀");
+        h1.setAttribute("class", "son");
+        h1.textContent = "안녕";
+      });
     </script>
   </body>
 </html>
