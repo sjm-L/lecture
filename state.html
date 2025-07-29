@@ -9,15 +9,27 @@
     <div id="root"></div>
     <script>
       const root = document.getElementById("root");
-      const someSize = 100;
-      root.style.width = 100 + "px"; //100px
-      root.style.height = `${someSize}px`; //100px
+      let someSize = 100;
       root.style.backgroundColor = "cadetblue";
+      root.style.width = `${someSize}px`;
+      root.style.height = "100px";
 
-      function someEvent() {
+      root.addEventListener("click", function () {
         root.style.backgroundColor = "crimson";
-      }
-      root.addEventListener("click", someEvent);
+        someSize += 10;
+        root.style.width = `${someSize}px`;
+        root.style.height = `${someSize}px`;
+
+        if (someSize > 120) {
+          root.textContent = " 안녕";
+          root.style.color = "white";
+        }
+
+        if (someSize > 130) {
+          root.textContent = " 잘가";
+          root.style.color = "white";
+        }
+      });
 
       console.dir(root);
     </script>
