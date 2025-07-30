@@ -1,8 +1,13 @@
-const a = {};
+function one() {
+  //기명 함수 선언
+}
+one();
 
-a.name = "욱재";
-a.age = 20;
-a.address = "서울시 강남구";
-a.hobbies = ["축구", "농구", "배드민턴"];
+const two = function () {
+  //이름 없는 함수 선언 -> 상수에 담아서 사용
+  //함수 리터널(정해진 것) -> 함수 표현식
+};
+two();
 
-console.log(a);
+const three = () => {};
+//화살표 함수 선언
