@@ -1,17 +1,10 @@
-function one(a, b) {
-  let result = a + b;
-  return result;
+function one(a, c) {
+  return c(a);
 }
-console.log(one(1, 2));
 
-const two = function (a, b) {
-  let result = a + b;
-  return result;
-};
-console.log(two(3, 4));
-
-const three = () => {
-  let result = a + b;
-  return result;
-};
-console.log(three(5, 6));
+console.log(
+  one(6, (a) => {
+    a++;
+    return a;
+  })
+);
