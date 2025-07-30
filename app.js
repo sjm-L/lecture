@@ -1,13 +1,17 @@
-function one() {
-  //기명 함수 선언
+function one(a, b) {
+  let result = a + b;
+  return result;
 }
-one();
+console.log(one(1, 2));
 
-const two = function () {
-  //이름 없는 함수 선언 -> 상수에 담아서 사용
-  //함수 리터널(정해진 것) -> 함수 표현식
+const two = function (a, b) {
+  let result = a + b;
+  return result;
 };
-two();
+console.log(two(3, 4));
 
-const three = () => {};
-//화살표 함수 선언
+const three = () => {
+  let result = a + b;
+  return result;
+};
+console.log(three(5, 6));
