@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스트룹 색채 단어 검사</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body
+    id="app"
+    class="font-family-malgun-gothic padding-20 transition-all-ease"
+  >
+    <div id="root" class="max-width-600 margin-0-auto">
+      <h1 class="text-align-center margin-bottom-30">스트룹 색채 단어 검사</h1>
+
+      <div class="margin-bottom-20">
+        <button
+          class="display-block margin-0-auto margin-bottom-15 padding-10-20 font-size-base background-color-gray-light text-color-black cursor-pointer button-base"
+        >
+          다크 모드
+        </button>
+        <div class="text-align-center margin-bottom-15">
+          <span>점수: </span><span class="font-weight-bold">0</span>
+          <span> | 시간: </span><span class="font-weight-bold">30</span
+          ><span>초</span>
+        </div>
+      </div>
+
+      <div
+        class="text-align-center margin-bottom-30 min-height-200 display-flex align-items-center justify-content-center border-2-solid border-color-gray background-color-white"
+      >
+        <div class="font-size-huge font-weight-bold">시작하기를 눌러주세요</div>
+      </div>
+
+      <div class="text-align-center margin-bottom-20">
+        <button
+          class="display-block margin-0-auto padding-15 font-size-large font-weight-bold background-color-gray-light text-color-black cursor-pointer button-base"
+        >
+          시작하기
+        </button>
+      </div>
+
+      <div
+        class="display-flex justify-content-center flex-wrap gap-10 margin-bottom-20"
+      ></div>
+
+      <div class="text-align-center">
+        <p>단어가 아닌 실제 글자의 색깔을 클릭하세요!</p>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
