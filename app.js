@@ -1,9 +1,13 @@
-let a = "손";
-
-function b() {
-  let b = a;
-  b = "정민";
-  console.log(b);
+//실행함수 execution function
+function first() {
+  console.log("hello");
 }
-b();
-console.log(a);
+
+//반환함수 return function
+function second() {
+  let result = "안" + "녕";
+  return result;
+}
+
+first();
+console.log(second());
