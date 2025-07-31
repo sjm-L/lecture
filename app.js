@@ -1,13 +1,9 @@
-function outerFunction() {
-  function innerFunctionone() {
-    return 10;
-  }
-  function innerFunctiontwo() {
-    return 20;
-  }
-  let result = innerFunctionone() + innerFunctiontwo();
-  return result;
-}
+let a = "손";
 
-console.log(outerFunction());
-console.log(innerFunctionone());
+function b() {
+  let b = a;
+  b = "정민";
+  console.log(b);
+}
+b();
+console.log(a);
